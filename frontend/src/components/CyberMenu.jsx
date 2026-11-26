@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 const rubriques = [
   { titre: 'Accueil', chemin: '/accueil', detail: 'Identité & parcours académique' },
@@ -10,6 +10,7 @@ const rubriques = [
 ]
 
 export default function CyberMenu({ chemin, animations, children }) {
+  const naviguer = useNavigate()
   const ouvert = chemin !== '/'
   const indexPage = rubriques.findIndex(item => chemin === item.chemin || chemin.startsWith(item.chemin + '/'))
   const [survol, setSurvol] = useState(null)
@@ -17,13 +18,31 @@ export default function CyberMenu({ chemin, animations, children }) {
   const menu = useRef(null)
   const liens = useRef([])
   const panneau = useRef(null)
+  const ancienneRubrique = useRef(null)
+  const TitreMenu = ouvert ? 'p' : 'h1'
 
-  // Sur écran tactile ou étroit, révéler le contenu sans défilement manuel.
+  // Transférer le focus vers la rubrique ouverte, puis le restituer au menu.
   useEffect(() => {
-    if (!window.matchMedia('(max-width: 900px), (max-width: 1200px) and (max-height: 500px) and (pointer: coarse)').matches) return
-    if (ouvert) panneau.current?.scrollIntoView({ block: 'start', behavior: 'auto' })
-    else window.scrollTo({ top: 0, behavior: 'auto' })
-  }, [chemin, ouvert])
+    const mobile = window.matchMedia('(max-width: 900px), (max-width: 1200px) and (max-height: 500px) and (pointer: coarse)').matches
+    if (ouvert) {
+      ancienneRubrique.current = indexPage
+      panneau.current?.focus({ preventScroll: true })
+      if (mobile) panneau.current?.scrollIntoView({ block: 'start', behavior: 'auto' })
+    } else {
+      if (ancienneRubrique.current !== null && ancienneRubrique.current >= 0) {
+        liens.current[ancienneRubrique.current]?.focus({ preventScroll: true })
+      }
+      ancienneRubrique.current = null
+      if (mobile) window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+  }, [chemin, ouvert, indexPage])
+
+  function fermerAuClavier(event) {
+    if (!ouvert || event.defaultPrevented || event.key !== 'Escape') return
+    if (event.target.closest('input, textarea, select, [contenteditable="true"]')) return
+    event.preventDefault()
+    naviguer('/')
+  }
 
   function selectionner(index) {
     setSurvol({ chemin, index })
@@ -48,10 +67,14 @@ export default function CyberMenu({ chemin, animations, children }) {
   return (
     <main ref={menu} className={'cyber-menu' + (ouvert ? ' cyber-open' : '')}
       style={{ '--destination-color': ['#58f5e4', '#ff47b9', '#78aaff', '#f1a3ff', '#bcf9cc'][actif] }}
-      onPointerMove={camera} onPointerLeave={() => {
+      onKeyDown={fermerAuClavier} onPointerMove={camera} onPointerLeave={() => {
         menu.current?.style.setProperty('--camera-x', '0px')
         menu.current?.style.setProperty('--camera-y', '0px')
       }}>
+      {ouvert && <a className="cyber-skip" href="#contenu-principal" onClick={event => {
+        event.preventDefault()
+        panneau.current?.focus()
+      }}>Aller au contenu</a>}
       <div className="cyber-scene" aria-hidden="true" />
       <div className="cyber-atmosphere" aria-hidden="true" />
       <div className="cyber-rain" aria-hidden="true" />
@@ -64,7 +87,7 @@ export default function CyberMenu({ chemin, animations, children }) {
       <div className="cyber-shell">
         <div className="cyber-heading">
           <p className="cyber-kicker"><span /> SMART &amp; GREEN BUILDING</p>
-          <h1 className="cyber-logo"><Link to="/" aria-label="CYBERCITY, menu principal">CYBERCITY</Link></h1>
+          <TitreMenu className="cyber-logo"><Link to="/" aria-label="CYBERCITY, menu principal">CYBERCITY</Link></TitreMenu>
           <p className="cyber-edition">Edition 2.0</p>
         </div>
         <nav className="cyber-nav" aria-label="Menu principal" onKeyDown={clavier}>
@@ -87,7 +110,7 @@ export default function CyberMenu({ chemin, animations, children }) {
         </div>
       </div>
       {ouvert && (
-        <section ref={panneau} key={chemin} className="cyber-content" aria-label={rubriques[indexPage]?.titre ?? 'Portfolio'}>
+        <section ref={panneau} id="contenu-principal" tabIndex={-1} key={chemin} className="cyber-content" aria-label={rubriques[indexPage]?.titre ?? 'Portfolio'}>
           <div className="cyber-glitch-layer" aria-hidden="true">
             <div className="cyber-glitch-frame" />
             <div className="cyber-glitch-band cyber-band-one" />
@@ -100,7 +123,7 @@ export default function CyberMenu({ chemin, animations, children }) {
             <span><i aria-hidden="true" /> CYBERCITY <b>//</b> {String(indexPage + 1).padStart(2, '0')}</span>
             <Link to="/" className="cyber-close" aria-label="Retour au menu principal">✕ <span>Fermer</span></Link>
           </header>
-          <div className="cyber-content-scroll">
+          <div className="cyber-content-scroll" tabIndex={0} role="region" aria-label="Contenu de la rubrique">
             {children}
           </div>
         </section>

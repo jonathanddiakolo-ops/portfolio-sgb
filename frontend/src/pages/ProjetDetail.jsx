@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams } from 'react-router'
 import useApi from '../hooks/useApi.js'
 import Etat from '../components/Etat.jsx'
@@ -5,6 +6,10 @@ import Etat from '../components/Etat.jsx'
 export default function ProjetDetail() {
   const { slug } = useParams()
   const { data: projet, loading, error } = useApi('/api/projets/' + encodeURIComponent(slug))
+
+  useEffect(() => {
+    if (projet) document.title = projet.titre + ' | CYBERCITY — Jonathan Daniel Diakolo'
+  }, [projet])
 
   return (
     <section className="section page">

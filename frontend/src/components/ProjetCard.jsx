@@ -12,7 +12,7 @@ export default function ProjetCard({ projet }) {
         </figure>
       )}
       <div className="projet-head">
-        <h3>{titre}</h3>
+        <h2 className="projet-card-title">{titre}</h2>
         <span className="annee">{annee}</span>
       </div>
       <p>{resume}</p>
@@ -22,7 +22,7 @@ export default function ProjetCard({ projet }) {
         ))}
       </ul>
       <p className="technos">{technos.join(' · ')}</p>
-      <Link className="detail-link" to={`/projets/${slug}`}>Voir le projet</Link>
+      <Link className="detail-link" aria-label={'Voir le projet : ' + titre} to={`/projets/${slug}`}>Voir le projet</Link>
     </article>
   )
 }

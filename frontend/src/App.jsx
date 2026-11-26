@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router'
 import CyberMenu from './components/CyberMenu.jsx'
 import Etat from './components/Etat.jsx'
@@ -18,6 +19,20 @@ export default function App() {
   const { animations, basculerAnimations } = useAnimations()
   const location = useLocation()
   const chemin = location.pathname
+
+  // Un titre d’onglet explicite pour chaque rubrique.
+  useEffect(() => {
+    const titres = {
+      '/': 'Portfolio Smart & Green Building',
+      '/accueil': 'Accueil',
+      '/projets': 'Mes projets',
+      '/competences': 'Mes compétences',
+      '/a-propos': 'À propos',
+      '/parametres': 'Paramètres'
+    }
+    const titre = titres[chemin] ?? (chemin.startsWith('/projets/') ? 'Détail du projet' : 'Page introuvable')
+    document.title = titre + ' | CYBERCITY — Jonathan Daniel Diakolo'
+  }, [chemin])
 
   return (
     <CyberMenu chemin={chemin} animations={animations}>

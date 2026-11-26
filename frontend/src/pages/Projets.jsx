@@ -21,7 +21,7 @@ export default function Projets() {
       <h1 className="section-title">Mes projets</h1>
       <BarreRecherche valeur={recherche} onChange={setRecherche} />
       <FiltreTags tags={tags} actif={tagActif} onChange={setTagActif} />
-      <p className="compteur">{visibles.length} projet(s)</p>
+      <p className="compteur" role="status">{visibles.length} projet(s)</p>
       {visibles.length === 0 && <p>Aucun projet ne correspond à ta recherche.</p>}
       <div className="grid">
         {visibles.map((p) => <ProjetCard key={p.slug} projet={p} />)}
