@@ -1,0 +1,40 @@
+[
+  {
+    "groupe": "Smart Building et IoT",
+    "items": [
+      {
+        "nom": "Domotique",
+        "niveau": 2
+      },
+      {
+        "nom": "MQTT",
+        "niveau": 2
+      },
+      {
+        "nom": "Z-Wave",
+        "niveau": 1
+      },
+      {
+        "nom": "Contrôle d'accès",
+        "niveau": 1
+      }
+    ]
+  },
+  {
+    "groupe": "Développement",
+    "items": [
+      {
+        "nom": "Flutter",
+        "niveau": 2
+      },
+      {
+        "nom": "JavaScript",
+        "niveau": 1
+      },
+      {
+        "nom": "React",
+        "niveau": 1
+      }
+    ]
+  }
+]

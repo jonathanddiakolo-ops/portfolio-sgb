@@ -1,0 +1,26 @@
+### Vérifier le serveur
+GET http://localhost:3000/
+
+### Profil
+GET http://localhost:3000/api/profil
+
+### Tous les projets
+GET http://localhost:3000/api/projets
+
+### Filtrer les projets
+GET http://localhost:3000/api/projets?tag=IoT
+
+### Projet par slug
+GET http://localhost:3000/api/projets/domo-smart
+
+### Projet introuvable : 404
+GET http://localhost:3000/api/projets/inconnu
+
+### Compétences
+GET http://localhost:3000/api/competences
+
+### Parcours
+GET http://localhost:3000/api/parcours
+
+### Route inconnue : 404
+GET http://localhost:3000/api/inconnue

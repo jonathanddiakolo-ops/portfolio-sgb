@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "domo-smart",
+    "titre": "Domo’Smart – Domotique connectée",
+    "resume": "Développement d'une application mobile pour piloter une prise connectée et visualiser sa puissance électrique en temps réel.",
+    "tags": [
+      "IoT",
+      "Domotique",
+      "Smart Building"
+    ],
+    "annee": 2026,
+    "technos": [
+      "Flutter",
+      "MQTT",
+      "Domoticz",
+      "Z-Wave",
+      "Raspberry Pi"
+    ]
+  }
+]
