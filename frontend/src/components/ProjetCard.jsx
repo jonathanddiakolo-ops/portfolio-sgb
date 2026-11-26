@@ -1,5 +1,7 @@
+import { Link } from 'react-router'
+
 export default function ProjetCard({ projet }) {
-  const { titre, resume, tags, annee, technos } = projet
+  const { slug, titre, resume, tags, annee, technos } = projet
 
   return (
     <article className="card projet-card">
@@ -14,6 +16,7 @@ export default function ProjetCard({ projet }) {
         ))}
       </ul>
       <p className="technos">{technos.join(' · ')}</p>
+      <Link className="detail-link" to={`/projets/${slug}`}>Voir le projet</Link>
     </article>
   )
 }

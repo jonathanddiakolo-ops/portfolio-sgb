@@ -1,3 +1,5 @@
+import { Link } from 'react-router'
+
 export default function Hero({ profil }) {
   return (
     <section id="accueil" className="hero">
@@ -5,7 +7,7 @@ export default function Hero({ profil }) {
       <h1>{profil.nom}</h1>
       <h2>{profil.titre}</h2>
       <p>{profil.accroche}</p>
-      <a className="btn" href="#projets">Découvrir mes projets</a>
+      <Link className="btn" to="/projets">Découvrir mes projets</Link>
     </section>
   )
 }
