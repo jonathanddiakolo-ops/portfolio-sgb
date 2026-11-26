@@ -15,7 +15,10 @@
       "Domoticz",
       "Z-Wave",
       "Raspberry Pi"
-    ]
+    ],
+    "image": "/images/projets/domo-smart.webp",
+    "imageAlt": "Illustration d’une prise connectée, d’un Raspberry Pi et d’une application de suivi énergétique sur smartphone.",
+    "imageNote": "Illustration générée par IA — représentation du projet, pas une photo ni une capture originale."
   },
   {
     "slug": "dialux-eclairage-classe",
@@ -36,7 +39,10 @@
       "Calcul du nombre de luminaires nécessaires.",
       "Calcul des distances entre les luminaires.",
       "Simulation et analyse de la répartition de l’éclairage."
-    ]
+    ],
+    "image": "/images/projets/dialux-eclairage-classe.webp",
+    "imageAlt": "Illustration d’une salle de classe modélisée en 3D avec des luminaires et une représentation de la répartition de l’éclairage.",
+    "imageNote": "Illustration générée par IA — représentation du projet, pas une photo ni une capture originale."
   },
   {
     "slug": "alimentation-voiture-sncf",
@@ -60,6 +66,9 @@
       "Étudier le redressement et la régulation de la tension pour obtenir du courant continu.",
       "Prévoir la recharge de la batterie et l’alimentation des équipements à l’arrêt."
     ],
-    "resultat": "Objectif : assurer la continuité de l’alimentation électrique des équipements embarqués lorsque le train est immobilisé."
+    "resultat": "Objectif : assurer la continuité de l’alimentation électrique des équipements embarqués lorsque le train est immobilisé.",
+    "image": "/images/projets/alimentation-voiture-sncf.webp",
+    "imageAlt": "Illustration d’une voiture ferroviaire et de ses équipements d’alimentation électrique.",
+    "imageNote": "Illustration générée par IA — représentation du projet, pas une photo ni une capture originale."
   }
 ]

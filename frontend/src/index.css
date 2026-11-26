@@ -614,3 +614,12 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 [data-theme="clair"] .cyber-star.filled {background-image:linear-gradient(180deg,#087d8d,#2752a9 50%,#ab256c);filter:none;}
 @media(prefers-reduced-motion:reduce){.cyber-jdd img{animation:none!important;}}
 [data-animations="off"] .cyber-jdd img {animation:none!important;}
+
+
+/* Illustrations de projets et centres d’intérêt : mêmes variables de thème. */
+.projet-figure {margin:0 0 1rem;}
+.projet-figure .projet-image {margin-bottom:.4rem;}
+.projet-image-note {font-size:.75rem;line-height:1.4;color:var(--muted);}
+.cyber-interests {list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;}
+.cyber-interests li {display:flex;align-items:center;gap:.55rem;padding:.45rem .85rem;border:1px solid var(--bord);border-left:2px solid var(--accent);background:var(--tag-bg);color:var(--texte);font-weight:600;}
+.cyber-interests li span {color:var(--accent);font-size:1.2rem;line-height:1;}

@@ -32,7 +32,10 @@ export default function APropos({ profil }) {
           </ul></>
         )}
         {profil.interets?.length > 0 && (
-          <><h3>Centres d’intérêt</h3><ul>{profil.interets.map((i) => <li key={i}>{i}</li>)}</ul></>
+          <><h3>Centres d’intérêt</h3>
+          <ul className="cyber-interests">{profil.interets.map((i) => (
+            <li key={i}><span aria-hidden="true">{i === 'Football' ? '⚽' : i === 'Musique' ? '♫' : '◇'}</span>{i}</li>
+          ))}</ul></>
         )}
         {profil.cv && <a className="btn" href={profil.cv} download>Télécharger mon CV (PDF)</a>}
       </article>
@@ -53,3 +56,4 @@ export default function APropos({ profil }) {
     </section>
   )
 }
+

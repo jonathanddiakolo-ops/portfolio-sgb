@@ -1,11 +1,16 @@
 import { Link } from 'react-router'
 
 export default function ProjetCard({ projet }) {
-  const { slug, titre, resume, tags, annee, technos, image, imageAlt } = projet
+  const { slug, titre, resume, tags, annee, technos, image, imageAlt, imageNote } = projet
 
   return (
     <article className="card projet-card">
-      {image && <img className="projet-image" src={image} alt={imageAlt ?? ''} width="800" height="450" loading="lazy" />}
+      {image && (
+        <figure className="projet-figure">
+          <img className="projet-image" src={image} alt={imageAlt ?? ''} width="800" height="450" loading="lazy" />
+          {imageNote && <figcaption className="projet-image-note">{imageNote}</figcaption>}
+        </figure>
+      )}
       <div className="projet-head">
         <h3>{titre}</h3>
         <span className="annee">{annee}</span>
