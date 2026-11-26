@@ -18,6 +18,27 @@
     ]
   },
   {
+    "slug": "dialux-eclairage-classe",
+    "titre": "Simulation et modélisation de l’éclairage d’une salle de classe",
+    "resume": "Étude d’éclairage d’une salle de classe avec DIALux evo afin de déterminer le nombre de luminaires nécessaires et leur implantation.",
+    "tags": [
+      "Éclairage",
+      "Modélisation 3D",
+      "Smart Building"
+    ],
+    "annee": 2025,
+    "technos": [
+      "DIALux evo"
+    ],
+    "contexte": "Projet académique de licence professionnelle Domotique au Campus La Châtaigneraie.",
+    "realisations": [
+      "Modélisation de la salle de classe en 3D.",
+      "Calcul du nombre de luminaires nécessaires.",
+      "Calcul des distances entre les luminaires.",
+      "Simulation et analyse de la répartition de l’éclairage."
+    ]
+  },
+  {
     "slug": "alimentation-voiture-sncf",
     "titre": "Système d’alimentation électrique d’une voiture SNCF",
     "resume": "Étude d’un système d’alimentation électrique embarqué dans une voiture ferroviaire, avec redressement, régulation et stockage d’énergie pour son fonctionnement à l’arrêt.",
