@@ -4,5 +4,23 @@
     "titre": "Master Smart & Green Building",
     "lieu": "ESIEE-IT",
     "description": "Manager en ingénierie informatique option Smart & Green Building"
+  },
+  {
+    "periode": "2024–2025",
+    "titre": "Licence professionnelle Domotique",
+    "lieu": "Campus La Châtaigneraie",
+    "description": "Parcours Coordinateur de projet en immotique et objets intelligents"
+  },
+  {
+    "periode": "2022–2024",
+    "titre": "BTS Électrotechnique",
+    "lieu": "Lycée Marcel Sembat",
+    "description": "Brevet de technicien supérieur en électrotechnique"
+  },
+  {
+    "periode": "2019–2022",
+    "titre": "Baccalauréat professionnel MELEC",
+    "lieu": "Lycée Marcel Sembat",
+    "description": "Métiers de l’électricité et de ses environnements connectés"
   }
 ]
