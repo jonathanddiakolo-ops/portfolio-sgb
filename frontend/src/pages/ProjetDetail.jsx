@@ -13,6 +13,7 @@ export default function ProjetDetail() {
         <article className="card detail">
           <p className="eyebrow">{projet.annee}</p>
           <h1>{projet.titre}</h1>
+          {projet.image && <img className="projet-image" src={projet.image} alt={projet.imageAlt ?? ''} width="800" height="450" loading="lazy" />}
           <p>{projet.resume}</p>
           {projet.contexte && <><h2>Contexte</h2><p>{projet.contexte}</p></>}
           {projet.realisations?.length > 0 && (
