@@ -7,7 +7,7 @@ function themeInitial() {
   } catch {
     // Le site fonctionne même si le navigateur bloque le stockage.
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'sombre' : 'clair'
+  return 'sombre'
 }
 
 export default function useTheme() {

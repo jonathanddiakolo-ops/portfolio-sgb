@@ -381,7 +381,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 .cyber-content .cyber-settings p {margin:.4rem 0 .75rem;color:var(--muted);}
 .cyber-depart.cyber-open .cyber-content {opacity:.1;transition:opacity .32s;}
 @keyframes cyber-panel-in {from{opacity:0;transform:translateX(20px);}to{opacity:1;transform:translateX(0);}}
-/* Le réglage clair ne modifie que la lisibilité du panneau, pas la ville ni le menu. */
+/* Palette claire : panneau, menu et décor changent ensemble via le réglage. */
 [data-theme="clair"] .cyber-content {
   --texte:#152434;--muted:#425567;--carte:#f0faffef;--bord:#a3cad8;--accent:#126c76;--tag-bg:#e3eaf5;--btn-fond:#126c76;--btn-texte:#fff;--erreur:#923354;
   background:linear-gradient(135deg,#ecf9fcf5,#e9e3f6ed);
@@ -413,3 +413,62 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   .cyber-scene::before,.cyber-content {animation:none!important;}
 }
 [data-animations="off"] .cyber-scene::before,[data-animations="off"] .cyber-content {animation:none!important;}
+
+/* Mode clair global, déclenché uniquement par le réglage utilisateur. */
+[data-theme="clair"] .cyber-menu {
+  background:#e5eef6;
+  color:#25334a;
+  --destination-color:#9d2e83!important;
+}
+[data-theme="clair"] .cyber-scene::before {
+  filter:brightness(1.22) saturate(.85) contrast(.9);
+}
+[data-theme="clair"] .cyber-vignette {
+  background:linear-gradient(90deg,#f2fafff5 0%,#f0f7fbea 18%,#ecf4f9ad 35%,#eaf3fa36 62%,transparent 84%),
+    linear-gradient(0deg,#e9f3f9d9 0%,transparent 24%,transparent 85%,#e5f3f978 100%);
+}
+[data-theme="clair"] .cyber-neon-flow { opacity:.6; }
+[data-theme="clair"] .cyber-atmosphere { opacity:.45; }
+[data-theme="clair"] .cyber-kicker { color:#075e69;text-shadow:0 0 8px #41d9cf52; }
+[data-theme="clair"] .cyber-kicker span { background:#078378;box-shadow:0 0 9px #10bbb088; }
+[data-theme="clair"] .cyber-logo {
+  color:#087f83;
+  background:linear-gradient(180deg,#087d8d 6%,#167d90 39%,#2752a9 51%,#8c378b 69%,#ab256c 94%);
+  background-clip:text;
+  filter:drop-shadow(0 0 7px #ffffffb8) drop-shadow(0 0 11px #60cbd774);
+}
+[data-theme="clair"] .cyber-edition { color:#533050;text-shadow:0 0 8px #f9aadd8c; }
+[data-theme="clair"] .cyber-option { color:#24465a;text-shadow:none; }
+[data-theme="clair"] .cyber-index { color:#456477; }
+[data-theme="clair"] .cyber-option.cyber-selected,[data-theme="clair"] .cyber-option:focus-visible {
+  background:linear-gradient(100deg,#a02c86e8,#6c337ba8 72%,#9e5b9a08);
+  color:#fff;
+  border-left-color:#a02c86;
+  border-top-color:#aa408f55;
+  border-bottom-color:#aa408f55;
+  text-shadow:0 0 8px #ffc9e2;
+  box-shadow:-3px 0 14px #aa408f40;
+}
+[data-theme="clair"] .cyber-current:not(.cyber-selected) { border-left-color:#086f78;color:#085a65; }
+[data-theme="clair"] .cyber-caption { color:#2b4859; }
+[data-theme="clair"] .cyber-hud { color:#244359;text-shadow:0 0 8px #f4f9ff; }
+[data-theme="clair"] .cyber-hud b,[data-theme="clair"] .cyber-content-bar b { color:#a0327b; }
+[data-theme="clair"] .cyber-hud kbd { border-color:#6b8b9e;background:#f4faffbb; }
+[data-theme="clair"] .cyber-content {
+  border-color:#6f9ba9;border-left-color:#a02c86;
+  box-shadow:0 0 21px #6ba3be46,0 12px 36px #2138513f;
+}
+[data-theme="clair"] .cyber-content-bar { border-color:#70a5b855; }
+[data-theme="clair"] .cyber-content-scroll { scrollbar-color:#6b9fac #e5edf4; }
+[data-theme="clair"] .cyber-close:hover { color:#8a246f; }
+[data-theme="clair"] .cyber-content .card:hover { border-color:#2a8491;box-shadow:0 0 14px #2a849128; }
+[data-theme="clair"] .cyber-content::before {border-color:#368a94;}
+[data-theme="clair"] .cyber-content::after {border-color:#a02c86;}
+@media (max-width:650px) {
+  [data-theme="clair"] .cyber-vignette {
+    background:linear-gradient(90deg,#f2fafff0,#eaf3fbd6 55%,#eaf3fba3),linear-gradient(0deg,#e9f3f9f5,transparent 27%);
+  }
+}
+
+.cyber-edition {padding-left:clamp(1rem,7vw,7rem);}
+.cyber-open .cyber-edition {padding-left:clamp(.7rem,3vw,3rem);}

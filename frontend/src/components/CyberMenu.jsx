@@ -68,7 +68,7 @@ export default function CyberMenu({ chemin, animations, children }) {
         <div className="cyber-heading">
           <p className="cyber-kicker"><span /> SMART &amp; GREEN BUILDING</p>
           <h1 className="cyber-logo"><Link to="/" aria-label="CYBERCITY, menu principal">CYBERCITY</Link></h1>
-          <p className="cyber-edition">Jonathan D. Diakolo</p>
+          <p className="cyber-edition">Edition 2.0</p>
         </div>
         <nav className="cyber-nav" aria-label="Menu principal" onKeyDown={clavier}>
           {rubriques.map((item, i) => (
@@ -102,7 +102,7 @@ export default function CyberMenu({ chemin, animations, children }) {
         </section>
       )}
       <div className="cyber-hud">
-        <span>PORTFOLIO ACADÉMIQUE <b>//</b> ESIEE-IT</span>
+        <span>PORTFOLIO ACADÉMIQUE <b>//</b> ESIEE-IT <b>//</b> Jonathan D. Diakolo</span>
         <span className="cyber-keyboard"><kbd>↑</kbd><kbd>↓</kbd> Naviguer <kbd>Entrée</kbd> Sélectionner</span>
       </div>
       <div className="cyber-transition" aria-hidden="true" />

@@ -5,8 +5,8 @@ export default function Parametres({ theme, basculer, animations, basculerAnimat
       <h1 className="section-title">Paramètres</h1>
       <div className="card cyber-settings">
         <div>
-          <h2>Thème des rubriques</h2>
-          <p>Choisir le mode clair ou sombre pour le contenu du portfolio.</p>
+          <h2>Thème de l’interface</h2>
+          <p>Changer le mode clair ou sombre de toute l’interface CYBERCITY, y compris le menu principal et le décor.</p>
           <button type="button" className="filtre" onClick={basculer}>{theme === 'sombre' ? 'Activer le mode clair' : 'Activer le mode sombre'}</button>
         </div>
         <div>
