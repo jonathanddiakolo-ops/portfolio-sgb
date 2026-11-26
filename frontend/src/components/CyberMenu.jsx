@@ -59,12 +59,14 @@ export default function CyberMenu({ nom, animations }) {
       <div className="cyber-scene" aria-hidden="true" />
       <div className="cyber-atmosphere" aria-hidden="true" />
       <div className="cyber-rain" aria-hidden="true" />
+      <div className="cyber-neon-flow" aria-hidden="true" />
+      <div className="cyber-fog" aria-hidden="true" />
       <div className="cyber-vignette" aria-hidden="true" />
       <div className="cyber-shell">
         <div className="cyber-heading">
           <p className="cyber-kicker"><span /> SMART &amp; GREEN BUILDING</p>
           <h1 className="cyber-logo">CYBERCITY</h1>
-          <p className="cyber-edition">Edition 2.0</p>
+          <p className="cyber-edition">Jonathan</p>
           <p className="cyber-name">{nom}</p>
         </div>
         <nav className="cyber-nav" aria-label="Menu principal" onKeyDown={clavier}>
