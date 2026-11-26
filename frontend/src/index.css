@@ -52,3 +52,18 @@ main { flex: 1; }
   .hero { padding: 3rem 0; }
   .nav-links { gap: .8rem; font-size: .9rem; }
 }
+
+.nav-links a.active { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 5px; }
+.page { padding-top: 3rem; }
+.etat { padding: 2rem 0; }
+.erreur { color: #a12424; }
+.filtres { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.filtre { font: inherit; cursor: pointer; color: var(--accent); background: var(--carte); border: 1px solid var(--bord); border-radius: 999px; padding: .4rem .9rem; }
+.filtre[aria-pressed="true"] { background: var(--accent); color: white; }
+.compteur { color: var(--muted); margin-bottom: 1rem; }
+.detail-link { display: inline-block; margin-top: 1rem; font-weight: 600; }
+.detail { margin-top: 1rem; }
+.detail h1 { margin-block: .5rem 1rem; }
+.detail h2 { font-size: 1.2rem; margin-top: 1.2rem; }
+.timeline { list-style: none; padding-left: 1.5rem; border-left: 2px solid var(--accent); }
+.timeline li { padding: .5rem 0; }

@@ -1,32 +1,30 @@
-import data from './data/portfolio.json'
+import { Routes, Route } from 'react-router'
 import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import ProjetCard from './components/ProjetCard.jsx'
-import CompetenceGroupe from './components/CompetenceGroupe.jsx'
+import Etat from './components/Etat.jsx'
 import Footer from './components/Footer.jsx'
+import Accueil from './pages/Accueil.jsx'
+import Projets from './pages/Projets.jsx'
+import ProjetDetail from './pages/ProjetDetail.jsx'
+import Competences from './pages/Competences.jsx'
+import NotFound from './pages/NotFound.jsx'
+import useApi from './hooks/useApi.js'
 
 export default function App() {
-  const { profil, projets, competences } = data
+  const { data: profil, loading, error } = useApi('/api/profil')
+
+  if (!profil) return <main className="container"><Etat loading={loading} error={error} /></main>
 
   return (
     <>
       <Navbar nom={profil.nom} />
       <main className="container">
-        <Hero profil={profil} />
-        <section id="projets" className="section">
-          <h2 className="section-title">Mes projets</h2>
-          <div className="grid">
-            {projets.map((p) => <ProjetCard key={p.slug} projet={p} />)}
-          </div>
-        </section>
-        <section id="competences" className="section">
-          <h2 className="section-title">Mes compétences</h2>
-          <div className="grid">
-            {competences.map((c) => (
-              <CompetenceGroupe key={c.groupe} groupe={c.groupe} items={c.items} />
-            ))}
-          </div>
-        </section>
+        <Routes>
+          <Route path="/" element={<Accueil profil={profil} />} />
+          <Route path="/projets" element={<Projets />} />
+          <Route path="/projets/:slug" element={<ProjetDetail />} />
+          <Route path="/competences" element={<Competences />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
       <Footer profil={profil} />
     </>
