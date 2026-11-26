@@ -20,7 +20,7 @@ export default function App() {
   const chemin = location.pathname
 
   return (
-    <CyberMenu key={chemin} chemin={chemin} animations={animations}>
+    <CyberMenu chemin={chemin} animations={animations}>
       {chemin !== '/' && (
         profil ? (
           <Routes>

@@ -472,3 +472,45 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 
 .cyber-edition {padding-left:clamp(1rem,7vw,7rem);}
 .cyber-open .cyber-edition {padding-left:clamp(.7rem,3vw,3rem);}
+
+/* Ouverture holographique : seul le panneau subit le glitch. */
+.cyber-content {
+  animation:cyber-glitch-in .58s cubic-bezier(.2,.7,.3,1) both;
+}
+.cyber-glitch-layer {
+  position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;
+  opacity:0;
+  background:repeating-linear-gradient(0deg,transparent 0 8px,#78ffeb28 8px 9px,transparent 9px 17px);
+  animation:cyber-glitch-slices .58s steps(1,end) both;
+}
+.cyber-glitch-layer::before,.cyber-glitch-layer::after {
+  content:"";position:absolute;left:-2%;width:104%;height:14%;
+}
+.cyber-glitch-layer::before {
+  top:21%;background:linear-gradient(90deg,#ef4ab849,transparent 65%,#7df9ff6b);
+  transform:translateX(6px);
+}
+.cyber-glitch-layer::after {
+  top:0;height:4px;background:linear-gradient(90deg,transparent,#9bf8ff,#ee91eb,transparent);
+  box-shadow:0 0 16px #7ef8ff99;
+  animation:cyber-glitch-scan .44s linear both;
+}
+@keyframes cyber-glitch-in {
+  0% {opacity:0;transform:translateX(17px) skewX(-3deg);clip-path:inset(37% 0 42% 0);}
+  13% {opacity:.87;transform:translateX(-7px) skewX(1.8deg);clip-path:inset(8% 0 12% 0);box-shadow:-7px 0 #ff4fb370,7px 0 #67f6ff70;}
+  24% {opacity:.91;transform:translateX(5px) skewX(-1deg);clip-path:inset(1% 0 3% 0);box-shadow:5px 0 #ff4fb360,-5px 0 #67f6ff60;}
+  40% {opacity:1;transform:translateX(-3px);clip-path:inset(0);box-shadow:-3px 0 #ff4fb344,3px 0 #67f6ff44;}
+  65%,100% {opacity:1;transform:none;clip-path:none;}
+}
+@keyframes cyber-glitch-slices {
+  0% {opacity:0;clip-path:inset(0);}
+  13% {opacity:.9;clip-path:polygon(0 8%,100% 8%,100% 17%,0 17%,0 37%,100% 37%,100% 45%,0 45%,0 70%,100% 70%,100% 79%,0 79%);}
+  26% {opacity:.65;clip-path:inset(0);}
+  45% {opacity:.45;clip-path:inset(0);}
+  78%,100% {opacity:0;clip-path:inset(0);}
+}
+@keyframes cyber-glitch-scan {from{top:0;}to{top:100%;}}
+@media (prefers-reduced-motion:reduce) {
+  .cyber-content,.cyber-glitch-layer,.cyber-glitch-layer::after {animation:none!important;}
+}
+[data-animations="off"] .cyber-content,[data-animations="off"] .cyber-glitch-layer,[data-animations="off"] .cyber-glitch-layer::after {animation:none!important;}
