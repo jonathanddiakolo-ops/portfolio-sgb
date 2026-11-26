@@ -3,5 +3,25 @@
   "titre": "Manager en ingénierie informatique option Smart & Green Building",
   "accroche": "Je m'intéresse aux bâtiments intelligents, aux objets connectés et aux solutions numériques appliquées au bâtiment.",
   "github": "https://github.com/jonathanddiakolo-ops",
-  "disponibilite": "Master Smart & Green Building – ESIEE-IT, 2025-2027"
+  "disponibilite": "Master Smart & Green Building – ESIEE-IT, 2025-2027",
+  "galerie": [
+    {
+      "src": "/images/galerie/chat.webp",
+      "alt": "Chat noir au visage retouché",
+      "width": 532,
+      "height": 524
+    },
+    {
+      "src": "/images/galerie/appel-video.webp",
+      "alt": "Montage humoristique d’un appel vidéo avec un personnage animé",
+      "width": 675,
+      "height": 1200
+    },
+    {
+      "src": "/images/galerie/personnage.webp",
+      "alt": "Personnage anatomique assis, dans une scène humoristique",
+      "width": 1118,
+      "height": 1200
+    }
+  ]
 }
