@@ -16,5 +16,29 @@
       "Z-Wave",
       "Raspberry Pi"
     ]
+  },
+  {
+    "slug": "alimentation-voiture-sncf",
+    "titre": "Système d’alimentation électrique d’une voiture SNCF",
+    "resume": "Étude d’un système d’alimentation électrique embarqué dans une voiture ferroviaire, avec redressement, régulation et stockage d’énergie pour son fonctionnement à l’arrêt.",
+    "tags": [
+      "Électrotechnique",
+      "Énergie",
+      "Ferroviaire"
+    ],
+    "annee": 2024,
+    "technos": [
+      "Statodyne",
+      "Redresseur",
+      "Régulateur",
+      "Batterie 24 V"
+    ],
+    "contexte": "Projet académique de BTS Électrotechnique au lycée Marcel Sembat, sur une voiture ferroviaire fournie par l’association Pacific Vapeur Club.",
+    "realisations": [
+      "Étudier le principe de production d’une tension alternative par la statodyne.",
+      "Étudier le redressement et la régulation de la tension pour obtenir du courant continu.",
+      "Prévoir la recharge de la batterie et l’alimentation des équipements à l’arrêt."
+    ],
+    "resultat": "Objectif : assurer la continuité de l’alimentation électrique des équipements embarqués lorsque le train est immobilisé."
   }
 ]
