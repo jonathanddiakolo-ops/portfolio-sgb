@@ -25,6 +25,18 @@ export default function APropos({ profil }) {
       </article>
       <h2 className="section-title parcours-titre">Mon parcours académique</h2>
       {parcours ? <Timeline etapes={parcours} /> : <Etat loading={loading} error={error} />}
+      {profil.galerie?.length > 0 && (
+        <section className="galerie-section" aria-labelledby="galerie-titre">
+          <h2 id="galerie-titre" className="section-title parcours-titre">Galerie personnelle</h2>
+          <div className="galerie-grid">
+            {profil.galerie.map((image) => (
+              <figure className="galerie-image" key={image.src}>
+                <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
     </section>
   )
 }
