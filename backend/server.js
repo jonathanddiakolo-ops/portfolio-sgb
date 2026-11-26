@@ -11,7 +11,11 @@ app.get('/', (req, res) => {
   res.json({ message: 'API Portfolio SGB opérationnelle' })
 })
 
-app.use('/api', contenu)
+app.use('/api', (req, res, next) => {
+  res.setHeader('Cache-Control', 'private, no-store')
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow')
+  next()
+}, contenu)
 
 app.use((req, res) => res.status(404).json({ erreur: 'Route inconnue' }))
 

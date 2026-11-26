@@ -1,10 +1,7 @@
-import { readFileSync } from 'node:fs'
+// Les imports statiques garantissent l'inclusion des données dans le bundle Vercel.
+import profil from '../data/profil.json' with { type: 'json' }
+import projets from '../data/projets.json' with { type: 'json' }
+import competences from '../data/competences.json' with { type: 'json' }
+import parcours from '../data/parcours.json' with { type: 'json' }
 
-function lireJson(url) {
-  return JSON.parse(readFileSync(url, 'utf8'))
-}
-
-export const profil = lireJson(new URL('../data/profil.json', import.meta.url))
-export const projets = lireJson(new URL('../data/projets.json', import.meta.url))
-export const competences = lireJson(new URL('../data/competences.json', import.meta.url))
-export const parcours = lireJson(new URL('../data/parcours.json', import.meta.url))
+export { profil, projets, competences, parcours }
