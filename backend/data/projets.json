@@ -18,7 +18,16 @@
     ],
     "image": "/images/projets/domo-smart.webp",
     "imageAlt": "Illustration d’une prise connectée, d’un Raspberry Pi et d’une application de suivi énergétique sur smartphone.",
-    "imageNote": "Illustration générée par IA — représentation du projet, pas une photo ni une capture originale."
+    "imageNote": "Illustration générée par IA — représentation du projet, pas une photo ni une capture originale.",
+    "contexte": "Projet académique de domotique réalisé en 2026, visant à centraliser le pilotage d’un équipement électrique connecté et le suivi de sa consommation depuis un smartphone. Le système s’appuie sur un Raspberry Pi, Domoticz et les protocoles Z-Wave et MQTT.",
+    "realisations": [
+      "Développement d’une application mobile avec Flutter pour commander une prise connectée Fibaro Wall Plug (ON/OFF).",
+      "Configuration d’un Raspberry Pi avec Domoticz et d’une communication Z-Wave avec les équipements domotiques.",
+      "Mise en place des échanges MQTT entre l’application et Domoticz pour transmettre les commandes et recevoir les données.",
+      "Conception d’un tableau de bord pour visualiser la puissance instantanée (W) et suivre les mesures électriques, notamment la tension (V), le courant (A) et l’énergie (kWh).",
+      "Recherche et correction des difficultés de connexion réseau et MQTT lors des essais."
+    ],
+    "resultat": "La connexion MQTT a été établie lors des essais. L’objectif fonctionnel est de piloter la prise à distance et de suivre sa consommation électrique en temps réel depuis l’application. Ce projet m’a permis de travailler sur l’intégration d’objets connectés, la communication entre équipements et le développement mobile."
   },
   {
     "slug": "dialux-eclairage-classe",
