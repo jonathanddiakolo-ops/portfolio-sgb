@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 const rubriques = [
@@ -16,6 +16,14 @@ export default function CyberMenu({ chemin, animations, children }) {
   const actif = survol?.chemin === chemin ? survol.index : Math.max(0, indexPage)
   const menu = useRef(null)
   const liens = useRef([])
+  const panneau = useRef(null)
+
+  // Sur écran tactile ou étroit, révéler le contenu sans défilement manuel.
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 900px), (max-width: 1200px) and (max-height: 500px) and (pointer: coarse)').matches) return
+    if (ouvert) panneau.current?.scrollIntoView({ block: 'start', behavior: 'auto' })
+    else window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [chemin, ouvert])
 
   function selectionner(index) {
     setSurvol({ chemin, index })
@@ -79,7 +87,7 @@ export default function CyberMenu({ chemin, animations, children }) {
         </div>
       </div>
       {ouvert && (
-        <section key={chemin} className="cyber-content" aria-label={rubriques[indexPage]?.titre ?? 'Portfolio'}>
+        <section ref={panneau} key={chemin} className="cyber-content" aria-label={rubriques[indexPage]?.titre ?? 'Portfolio'}>
           <div className="cyber-glitch-layer" aria-hidden="true">
             <div className="cyber-glitch-frame" />
             <div className="cyber-glitch-band cyber-band-one" />
