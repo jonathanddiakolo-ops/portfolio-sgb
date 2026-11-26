@@ -17,3 +17,9 @@ Ce document conserve les consignes données à l’IA et les reformule en prompt
 ## Vérifier les modifications
 
 > Indique les fichiers modifiés, explique leur rôle et donne les liens vers les commits GitHub. Distingue un aperçu visuel d’un site réellement compilé ou déployé.
+
+## Séances 4 et 5 : API, recherche, thème et médias
+
+> Connecte les pages React à Express avec useApi, Vite proxy et React Router. Conserve les données académiques dans le backend et gère les états de chargement et d’erreur.
+
+> Ajoute une recherche contrôlée qui filtre le titre, le résumé, les tags et les technologies, combinée au filtre de thème, ainsi qu’un mode clair/sombre mémorisé dans localStorage. Prépare une page À propos et le support des médias réels sans inventer de CV ni d’images.
