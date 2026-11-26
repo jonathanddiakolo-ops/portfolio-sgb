@@ -128,3 +128,149 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   }
   [data-theme="sombre"] #root::before { opacity: .29; }
 }
+
+
+/* CYBERCITY — menu immersif et interface des rubriques */
+#root:has(.cyber-menu)::before { display: none; }
+.cyber-menu {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #050c16;
+  color: #d5faff;
+  padding: clamp(2.5rem, 6vh, 5rem) clamp(1.5rem, 8vw, 8.5rem) 5rem;
+  --camera-x: 0px;
+  --camera-y: 0px;
+}
+.cyber-scene,.cyber-atmosphere,.cyber-rain,.cyber-vignette,.cyber-transition {
+  position: absolute; inset: 0; pointer-events: none; z-index: -1;
+}
+.cyber-scene {
+  inset: -2.5%;
+  background: #0d1826 url('/images/cybercity.webp') 56% center / cover no-repeat;
+  transform: translate(var(--camera-x), var(--camera-y)) scale(1.03);
+  transition: transform .65s cubic-bezier(.2,.7,.25,1), filter .4s;
+  will-change: transform;
+}
+.cyber-atmosphere {
+  background: radial-gradient(ellipse at 84% 43%, #1df3ff1a, transparent 44%),
+    radial-gradient(ellipse at 48% 30%, #fa326f20, transparent 45%);
+  mix-blend-mode: screen;
+  animation: cyber-glow 7s ease-in-out infinite alternate;
+}
+.cyber-rain {
+  background-image: repeating-linear-gradient(110deg, transparent 0 50px, #b4edff08 50px 51px, transparent 51px 112px);
+  background-size: 190px 280px;
+  animation: cyber-rain 5s linear infinite;
+  opacity: .7;
+}
+.cyber-vignette {
+  background: linear-gradient(90deg, #050914f5 0%, #080c1bdc 18%, #090d1a7a 42%, transparent 74%),
+    linear-gradient(0deg,#050811ed 0%,transparent 27%,transparent 75%,#060b1b65 100%);
+}
+.cyber-shell { position: relative; max-width: 540px; width: min(100%,540px); margin: auto 0; }
+.cyber-heading { margin-bottom: clamp(1.25rem, 4vh, 3rem); }
+.cyber-kicker { color: #8ae8e6; letter-spacing: .18em; font-size: .65rem; font-weight: 750; display: flex; align-items: center; gap: .5rem; text-shadow: 0 0 10px #56ffff; }
+.cyber-kicker span { width: 6px; height: 6px; background: #58ffe1; box-shadow: 0 0 12px #58ffe1; }
+.cyber-logo {
+  font: 950 italic clamp(2.6rem, 6.3vw, 6.15rem)/1.02 system-ui, 'Segoe UI', sans-serif;
+  letter-spacing: -.07em;
+  margin: .55rem 0 0;
+  width: max-content; max-width: 100%;
+  color: #a8fff5;
+  background: linear-gradient(180deg,#affff0 8%,#47f5dc 35%,#e9f9ff 48%,#ed72ca 65%,#ff399f 92%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 11px #22ffe54f) drop-shadow(0 0 14px #f800b832);
+}
+.cyber-edition {
+  margin-top: -.12rem;
+  padding-left: clamp(1rem, 7vw, 7rem);
+  font: italic 600 clamp(1.1rem,2.5vw,2.35rem)/1.1 Georgia, serif;
+  letter-spacing: -.05em;
+  color: #fff4ff;
+  text-shadow: 0 0 12px #f96ddd;
+}
+.cyber-name {
+  color: #dbe5f4; font-size: clamp(.8rem, 1.4vw, 1.05rem);
+  letter-spacing: .065em; margin-top: .8rem;
+}
+.cyber-nav { display: grid; gap: clamp(.2rem,.85vh,.65rem); max-width: 430px; }
+.cyber-option {
+  position: relative; display: flex; align-items: center; gap: .85rem; min-height: clamp(3rem,7vh,4.5rem);
+  padding: .5rem 1rem; border: 1px solid transparent; text-decoration: none;
+  color: #9deaf2; font: 650 clamp(1.1rem,2.1vw,1.75rem)/1.2 system-ui, sans-serif;
+  letter-spacing: .075em; isolation: isolate;
+  text-shadow: 0 0 13px #5ce4fc55;
+  transition: transform .22s ease, color .18s, background .22s, border-color .22s, box-shadow .22s;
+}
+.cyber-index { font: 500 .63rem/1 ui-monospace,monospace; color: #7ca6b9; }
+.cyber-arrow { margin-left: auto; opacity: 0; font-size: 1.7rem; line-height: 1; transition: opacity .2s; }
+.cyber-option.cyber-selected, .cyber-option:focus-visible {
+  background: linear-gradient(100deg,#80256bdb,#4c174a61 74%,transparent);
+  border-left: 3px solid #fd9df3; border-top-color: #ed66c35e; border-bottom-color: #ed66c35e;
+  transform: translateX(7px); color: #fff2fe; box-shadow: -5px 0 20px #fb35bc26;
+  text-shadow: 0 0 15px #f89de5;
+}
+.cyber-option.cyber-selected .cyber-index { color: #ffe0ff; }
+.cyber-option.cyber-selected .cyber-arrow { opacity: 1; }
+.cyber-option:focus-visible { outline: 2px solid #b3faff; outline-offset: 3px; }
+.cyber-option:active { transform: translateX(12px) scale(.98); }
+.cyber-caption { margin-top: 1.1rem; display: flex; align-items: center; gap: .55rem; color: #b7d3de; letter-spacing: .035em; font-size: .75rem; min-height: 1.6rem; }
+.cyber-indicator { width: 7px; height: 7px; border: 1px solid var(--destination-color); transform: rotate(45deg); box-shadow: 0 0 9px var(--destination-color); }
+.cyber-hud { position: absolute; left: clamp(1.5rem,8vw,8.5rem); right: clamp(1.5rem,5vw,5rem); bottom: 1.6rem; display: flex; justify-content: space-between; align-items:center; flex-wrap: wrap; gap: .6rem; color: #bad4e4; font-family: ui-monospace,monospace; font-size: .65rem; letter-spacing: .07em; }
+.cyber-hud b { color: #fa70cd; }
+.cyber-hud kbd { font: inherit; display: inline-block; border: 1px solid #b0edf58a; padding: .12rem .34rem; background:#101c2ebd; margin: 0 .18rem; }
+.cyber-transition { z-index: 5; background: linear-gradient(90deg, transparent 0%,var(--destination-color) 52%, transparent 100%); opacity: 0; transform: translateX(-100%); }
+.cyber-depart .cyber-scene { transform: scale(1.21); filter: saturate(1.35) brightness(.55); transition: transform .55s ease-in,filter .55s ease-in; }
+.cyber-depart .cyber-shell { animation: cyber-exit .55s ease both; }
+.cyber-depart .cyber-transition { animation: cyber-sweep .55s ease both; }
+.cyber-depart .cyber-option { pointer-events: none; }
+@keyframes cyber-glow { from { opacity: .35; } to { opacity: .95; } }
+@keyframes cyber-rain { to { background-position: -95px 280px; } }
+@keyframes cyber-exit { 0% { opacity: 1; } 100% { opacity: 0; transform: translateX(-24px); } }
+@keyframes cyber-sweep { 0% { opacity: 0; transform: translateX(-100%); } 55% { opacity: .2; } 100% { opacity: 0; transform: translateX(100%); } }
+@keyframes cyber-enter { from { opacity: .1; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Les pages académiques existantes restent accessibles après l'entrée. */
+.cyber-layout { display: flex; flex-direction: column; flex: 1; min-height: 100vh; }
+.cyber-navbar { position: sticky; top: 0; z-index: 3; }
+.cyber-back { letter-spacing: .05em; white-space: nowrap; }
+.cyber-page { animation: cyber-enter .35s ease both; }
+.cyber-layout .card { transition: border-color .2s ease, box-shadow .2s ease; }
+.cyber-layout .card:hover { border-color: var(--accent); box-shadow: 0 3px 20px #29b59815; }
+.cyber-settings { display: grid; gap: 1.5rem; max-width: 760px; }
+.cyber-settings > div + div { border-top: 1px solid var(--bord); padding-top: 1.5rem; }
+.cyber-settings p { color: var(--muted); margin: .5rem 0 .8rem; }
+@media (max-width: 650px) {
+  .cyber-menu { padding: 2rem 1.5rem 5rem; justify-content: center; }
+  .cyber-vignette { background: linear-gradient(90deg,#050914ee,#080c1ba1 55%,#090d1a61),linear-gradient(0deg,#050811ed,transparent 28%); }
+  .cyber-scene { background-position: 51% center; }
+  .cyber-logo { font-size: clamp(2.8rem,11.5vw,4.6rem); }
+  .cyber-edition { padding-left: 3rem; }
+  .cyber-nav { max-width: 100%; }
+  .cyber-option { min-height: 3.3rem; }
+  .cyber-hud { left: 1.5rem; right: 1.5rem; bottom: 1.4rem; }
+  .cyber-keyboard { display: none; }
+  .cyber-navbar { position: static; }
+}
+@media (max-height: 650px) and (min-width: 651px) {
+  .cyber-menu { padding-block: 1.5rem 3.25rem; }
+  .cyber-heading { margin-bottom: 1rem; }
+  .cyber-logo { font-size: clamp(2.6rem,6vw,4rem); }
+  .cyber-edition { font-size: 1.6rem; }
+  .cyber-option { min-height: 2.7rem; font-size: 1.2rem; }
+  .cyber-caption { margin-top: .5rem; }
+  .cyber-hud { bottom: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cyber-menu *, .cyber-page, .cyber-layout .card { animation: none !important; transition: none !important; }
+  .cyber-scene { transform: none; }
+}
+[data-animations="off"] .cyber-menu *, [data-animations="off"] .cyber-page, [data-animations="off"] .cyber-layout .card { animation: none !important; transition: none !important; }
+[data-animations="off"] .cyber-scene { transform: none; }
