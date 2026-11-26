@@ -24,5 +24,22 @@
       "height": 1200
     }
   ],
-  "cv": "/documents/cv-jonathan-diakolo.pdf"
+  "cv": "/documents/cv-jonathan-diakolo.pdf",
+  "langues": [
+    {
+      "langue": "Français",
+      "niveau": "Maîtrise parfaite",
+      "etoiles": 6
+    },
+    {
+      "langue": "Anglais",
+      "niveau": "Satisfaisant",
+      "etoiles": 4
+    },
+    {
+      "langue": "Portugais",
+      "niveau": "Maîtrise parfaite",
+      "etoiles": 6
+    }
+  ]
 }

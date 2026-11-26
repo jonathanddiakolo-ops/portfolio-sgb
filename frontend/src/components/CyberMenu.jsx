@@ -50,6 +50,9 @@ export default function CyberMenu({ chemin, animations, children }) {
       <div className="cyber-neon-flow" aria-hidden="true" />
       <div className="cyber-fog" aria-hidden="true" />
       <div className="cyber-vignette" aria-hidden="true" />
+      <Link to="/" className="cyber-jdd" aria-label="JDD — retour au menu principal">
+        <img src="/images/logo-jdd.webp" alt="JDD" width="440" height="181" />
+      </Link>
       <div className="cyber-shell">
         <div className="cyber-heading">
           <p className="cyber-kicker"><span /> SMART &amp; GREEN BUILDING</p>

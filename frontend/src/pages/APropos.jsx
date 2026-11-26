@@ -16,7 +16,20 @@ export default function APropos({ profil }) {
         <p className="eyebrow">{profil.disponibilite}</p>
         {(profil.apropos ?? [profil.accroche]).map((texte) => <p key={texte}>{texte}</p>)}
         {profil.langues?.length > 0 && (
-          <><h3>Langues</h3><ul>{profil.langues.map((l) => <li key={l.langue}>{l.langue} : {l.niveau}</li>)}</ul></>
+          <><h3>Langues</h3>
+          <ul className="cyber-languages">
+            {profil.langues.map((l) => (
+              <li key={l.langue} className="cyber-language">
+                <div><strong>{l.langue}</strong><span className="cyber-language-level">{l.niveau}</span></div>
+                <div className="cyber-language-stars" role="img" aria-label={l.langue + ' : ' + l.etoiles + ' étoiles sur 6'}>
+                  {Array.from({ length: 6 }, (_, i) => (
+                    <span key={i} className={i < l.etoiles ? 'cyber-star filled' : 'cyber-star'} aria-hidden="true">{i < l.etoiles ? '★' : '☆'}</span>
+                  ))}
+                  <span className="cyber-star-score" aria-hidden="true">{l.etoiles}/6</span>
+                </div>
+              </li>
+            ))}
+          </ul></>
         )}
         {profil.interets?.length > 0 && (
           <><h3>Centres d’intérêt</h3><ul>{profil.interets.map((i) => <li key={i}>{i}</li>)}</ul></>
