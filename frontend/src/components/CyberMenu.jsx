@@ -77,7 +77,14 @@ export default function CyberMenu({ chemin, animations, children }) {
       </div>
       {ouvert && (
         <section key={chemin} className="cyber-content" aria-label={rubriques[indexPage]?.titre ?? 'Portfolio'}>
-          <div className="cyber-glitch-layer" aria-hidden="true" />
+          <div className="cyber-glitch-layer" aria-hidden="true">
+            <div className="cyber-glitch-frame" />
+            <div className="cyber-glitch-band cyber-band-one" />
+            <div className="cyber-glitch-band cyber-band-two" />
+            <div className="cyber-glitch-band cyber-band-three" />
+            <div className="cyber-glitch-beam" />
+            <span className="cyber-glitch-sync">SYNC // DATA LINK</span>
+          </div>
           <header className="cyber-content-bar">
             <span><i aria-hidden="true" /> CYBERCITY <b>//</b> {String(indexPage + 1).padStart(2, '0')}</span>
             <Link to="/" className="cyber-close" aria-label="Retour au menu principal">✕ <span>Fermer</span></Link>
